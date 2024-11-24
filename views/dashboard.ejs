@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f4f4f4; }
+    .passed { color: green; font-weight: bold; }
+    .failed { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Checklist Dashboard</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% results.forEach(result => { %>
+      <tr>
+        <td><%= result.ruleName %></td>
+        <td class="<%= result.status.toLowerCase() %>"><%= result.status %></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>
